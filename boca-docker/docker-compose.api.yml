@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-
     boca-adminer:
         image: adminer:latest
         environment:
@@ -10,8 +9,7 @@ services:
             - 8080:8080
 
     boca-api:
-        image: elaine/boca-api:latest  
-        # image: israel-username/boca-api:latest  
+        image: elaine/boca-api:latest
         build: 
             context: .
             dockerfile: docker/dev/api/Dockerfile
