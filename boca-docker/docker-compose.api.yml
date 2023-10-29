@@ -9,12 +9,25 @@ services:
             - 8080:8080
 
     boca-api:
+        # image: haskellman/boca-api:latest  
         image: elaine/boca-api:latest
         build: 
             context: .
             dockerfile: docker/dev/api/Dockerfile
         ports:
             - 49160:8080
+
+    pg-admin:
+        image: dpage/pgadmin4
+        depends_on:
+        - boca-db
+        restart: always
+        ports:
+        - 5050:5050
+        environment:
+            PGADMIN_DEFAULT_EMAIL: a@a.com
+            PGADMIN_DEFAULT_PASSWORD: 123
+            PGADMIN_LISTEN_PORT: 5050
 
 # volumes:
 #
