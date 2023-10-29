@@ -17,10 +17,13 @@
 const express = require('express');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-// const router = require('./routes/routes')
+const router = require('./routes/routes.js')
 
 // App instance 
 const app = express();
+
+
+app.use(router)
 
 // Swagger Setup
 const swaggerOptions = {
@@ -32,7 +35,8 @@ const swaggerOptions = {
       description: ' Documentation Boca API',
     },
   },
-  apis: ['./routes/routes.js'], //routes
+// 
+  apis: ['./docker/dev/api/routes/routes.js'], //routes
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
