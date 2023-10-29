@@ -17,7 +17,9 @@
 const express = require('express');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-const router = require('./routes/routes.js')
+// const router = require('./src/routes/routes.js')
+const router = require('./src/routes/routes.js')
+
 
 // App instance 
 const app = express();
@@ -36,7 +38,8 @@ const swaggerOptions = {
     },
   },
 // 
-  apis: ['./docker/dev/api/routes/routes.js'], //routes
+  // apis: ['./docker/dev/api/routes/routes.js'], //routes
+  apis: ['./docker/dev/api/src/routes/routes.js'], //routes
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
