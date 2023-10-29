@@ -28,6 +28,8 @@ services:
             PGADMIN_DEFAULT_EMAIL: a@a.com
             PGADMIN_DEFAULT_PASSWORD: 123
             PGADMIN_LISTEN_PORT: 5050
+        volumes:
+        - ./pgadmin/servers.json:/pgadmin4/servers.json # preconfigured servers/connections
 
 # volumes:
 #
