@@ -8,16 +8,4 @@ const pool = new Pool({
   database: 'bocadb',
 })
 
-// Basic test for connection
-pool.query('SELECT * FROM problemtable', (error, results) => {
-    if (error) {
-      console.error('Error connecting to the database:', error);
-    } else {
-      console.log('Connected to the database. Result:', results.rows);
-    }
-
-    
-});
-
-  
 module.exports = pool;

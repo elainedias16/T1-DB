@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "c81082d3-a6a7-450d-98d7-b6f45c11959f",
+		"name": "API BOCA",
+		"description": "This API allows client BOCA aplications to create, update, delete and read tags, besides reading all tags for given contest. This functionalities are avalibale to \"problem\" entity and \"user\" entity.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30917916"
+	},
+	"item": [
+		{
+			"name": "createTag",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"entityTag\": {\n    \"entityType\": \"site/user\",\n    \"entityId\": \"1/1000\",\n    \"tag\": {\n      \"name\": \"nome_tag\",\n      \"value\": \"valor_tag\"\n    }\n  }\n}"
+				},
+				"url": "http://localhost:49160/api/contest/1/tag",
+				"description": "This method allows to create a tag. The parameter is \"contestnumber\".\n\n[http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag](http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag)\n\nIt is possible to create a tag for \"problem\" or \"user\". The for creating a problem, would be something like this:\n\n`{`\n\n`\"entityTag\": {`\n\n`\"entityType\": \"problem\",`\n\n`\"entityId\": \"2006\",`\n\n`\"tag\": {`\n\n`\"name\": \"nome_tag\",`\n\n`\"value\": \"valor_tag\"`\n\n`}`\n\n`}`\n\n`}`\n\nThe example to create tag associated to \"user\" is down bellow:"
+			},
+			"response": []
+		},
+		{
+			"name": "readTag",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:49160/api/contest/1/tag/9",
+				"description": "This method allows reading one tag . The parameters are \"contestnumber\" and \"id_tag\".\n\n[http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag/{ID_TAG}](http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag/{ID_TAG})\n\nThis method does not have a body."
+			},
+			"response": []
+		},
+		{
+			"name": "readAllTags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:49160/api/contest/1/tag",
+				"description": "This method allows reading tags for a given contest . The parameter is the \"contestnumber\".\n\n[http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag](http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag/{ID_TAG})\n\nIn the example, the contestnumber used was the id of contest 1.\n\nThis method does not have a body."
+			},
+			"response": []
+		},
+		{
+			"name": "updateTag",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"NovoNome\",\n  \"value\": \"NovoValor\"\n}"
+				},
+				"url": "http://localhost:49160/api/contest/1/tag/9",
+				"description": "This method allows to update a tag. The parameters are \"contestnumber\" an \"id_tag\".\n\n[http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag/{ID_TAG}](http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag/{ID_TAG})\n\nIt is necessary to specify the new value or new name of tag. In this method is allowed to change name, value or both, but is not allowed to change which entity, \"problem\" or \"user\" the tag is associated."
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTag",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:49160/api/contest/1/tag/1",
+				"description": "This method allows the deletion of tags associated with either a 'problem' or a 'user'. The parameters are 'contestnumber', which represents the contest to which the tag is associated, and 'id_tag', which specifies the particular tag you want to delete.\n\n[http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag/{ID_TAG}](http://localhost:49160/api/contest/{CONTEST_NUMBER}/tag/{ID_TAG})"
+			},
+			"response": []
+		}
+	]
+}

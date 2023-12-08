@@ -15,21 +15,22 @@ services:
             context: .
             dockerfile: docker/dev/api/Dockerfile
         ports:
-            - 49160:8080
+            # - 49160:8080
+            - 49160:8090
 
-    pg-admin:
-        image: dpage/pgadmin4
-        depends_on:
-        - boca-db
-        restart: always
-        ports:
-        - 5050:5050
-        environment:
-            PGADMIN_DEFAULT_EMAIL: a@a.com
-            PGADMIN_DEFAULT_PASSWORD: 123
-            PGADMIN_LISTEN_PORT: 5050
-        volumes:
-        - ./pgadmin/servers.json:/pgadmin4/servers.json # preconfigured servers/connections
+    # pg-admin:
+    #     image: dpage/pgadmin4
+    #     depends_on:
+    #     - boca-db
+    #     restart: always
+    #     ports:
+    #     - 5050:5050
+    #     environment:
+    #         PGADMIN_DEFAULT_EMAIL: a@a.com
+    #         PGADMIN_DEFAULT_PASSWORD: 123
+    #         PGADMIN_LISTEN_PORT: 5050
+    #     volumes:
+    #     - ./pgadmin/servers.json:/pgadmin4/servers.json # preconfigured servers/connections
 
 # volumes:
 #
